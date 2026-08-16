@@ -34,3 +34,6 @@ dist-ssr
 # Environment Variables
 .env
 .env.*
+
+# Vercel Build Output
+.vercel
