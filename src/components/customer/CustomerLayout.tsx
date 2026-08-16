@@ -87,16 +87,14 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-border/60 glass-bar">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex items-center gap-3 py-3">
-            <Link to="/" className="flex shrink-0 items-center gap-2.5">
+            <Link to="/" className="flex min-w-0 items-center gap-2 sm:gap-2.5">
               <img
                 src="/favicon.png"
                 alt="Shree Shyam Dairy logo"
-                width={44}
-                height={44}
-                className="h-11 w-11 rounded-2xl"
+                className="h-9 w-9 sm:h-11 sm:w-11 object-contain shrink-0"
               />
-              <span className="block">
-                <span className="block font-display text-base font-bold leading-tight">
+              <div className="flex flex-col min-w-0">
+                <span className="block font-display text-[15px] sm:text-base font-bold leading-tight truncate">
                   {BUSINESS.name}
                 </span>
                 <span className="hidden sm:flex items-center gap-2 text-[11px] text-muted-foreground">
@@ -107,7 +105,7 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
                     <Clock className="h-3 w-3" /> {BUSINESS.hours}
                   </span>
                 </span>
-              </span>
+              </div>
             </Link>
 
             <form
@@ -194,16 +192,18 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
             </DropdownMenu>
           </div>
 
-          <form onSubmit={submitSearch} className="relative pb-3 md:hidden">
-            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              value={term}
-              onChange={(e) => setTerm(e.target.value)}
-              placeholder="Search milk, paneer, ghee..."
-              className="h-11 rounded-full border-border bg-secondary/50 pl-11"
-              aria-label="Search products"
-            />
-          </form>
+          <div className="pb-3 md:hidden">
+            <form onSubmit={submitSearch} className="relative">
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                value={term}
+                onChange={(e) => setTerm(e.target.value)}
+                placeholder="Search milk, paneer, ghee..."
+                className="h-11 rounded-full border-border bg-secondary/50 pl-11 focus-visible:bg-background"
+                aria-label="Search products"
+              />
+            </form>
+          </div>
         </div>
       </header>
 
