@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -90,17 +89,17 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-3 py-3">
             <Link to="/" className="flex shrink-0 items-center gap-2.5">
               <img
-                src={logo}
+                src="/favicon.png"
                 alt="Shree Shyam Dairy logo"
                 width={44}
                 height={44}
                 className="h-11 w-11 rounded-2xl"
               />
-              <span className="hidden sm:block">
+              <span className="block">
                 <span className="block font-display text-base font-bold leading-tight">
                   {BUSINESS.name}
                 </span>
-                <span className="flex items-center gap-2 text-[11px] text-muted-foreground">
+                <span className="hidden sm:flex items-center gap-2 text-[11px] text-muted-foreground">
                   <span className="flex items-center gap-1">
                     <MapPin className="h-3 w-3" /> Baramati, Pune
                   </span>
@@ -214,7 +213,7 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5">
-              <img src={logo} alt="" width={40} height={40} className="h-10 w-10 rounded-xl" />
+              <img src="/favicon.png" alt="" width={40} height={40} className="h-10 w-10 rounded-xl" />
               <p className="font-display text-lg font-bold">{BUSINESS.name}</p>
             </div>
             <p className="mt-3 max-w-xs text-sm text-muted-foreground">

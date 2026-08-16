@@ -26,7 +26,6 @@ import { useIsAdmin } from "@/hooks/useIsAdmin";
 import { supabase } from "@/integrations/supabase/client";
 import { BUSINESS } from "@/lib/business";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.png";
 
 const NAV = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -136,7 +135,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       <div className="flex">
         <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col border-r bg-background p-4 lg:flex">
           <Link to="/" className="mb-6 flex items-center gap-2">
-            <img src={logo} alt={`${BUSINESS.name} logo`} className="h-9 w-9 rounded-full" />
+            <img src="/favicon.png" alt={`${BUSINESS.name} logo`} className="h-9 w-9 rounded-full" />
             <span className="font-display text-sm font-bold leading-tight">
               {BUSINESS.name}
               <span className="block text-xs font-normal text-muted-foreground">Admin Panel</span>
