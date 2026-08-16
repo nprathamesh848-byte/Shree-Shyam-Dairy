@@ -2,8 +2,8 @@ export const BUSINESS = {
   name: "Shree Shyam Dairy",
   phone: "9158619237",
   whatsapp: "919158619237",
-  email: "kunalchavan9503@gmail.com",
-  address: "Main Road, Baramati, Pune, Maharashtra",
+  email: "chavannikk@gmail.com",
+  address: "Shree shyam dairy, indira mangal karyalay, Jasvanti complex girivihar gate line, samor, Nandurbar, Maharashtra 425412",
   hours: "6:00 AM - 9:00 PM",
 } as const;
 
