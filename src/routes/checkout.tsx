@@ -187,12 +187,12 @@ function CheckoutPage() {
         city: result.order.city,
         pincode: result.order.pincode,
         subtotal: result.order.subtotal,
-        discount: result.order.discount,
-        delivery_charge: result.order.delivery_charge,
-        total: result.order.total,
+        discount: result.order.discount ?? 0,
+        delivery_charge: result.order.delivery_charge ?? 0,
+        total: result.order.total ?? 0,
         items: result.items,
       };
-      const waUrl = buildWhatsAppUrl(buildWhatsAppMessage(waOrder));
+      const waUrl = buildWhatsAppUrl(buildWhatsAppMessage(waOrder as any));
       try {
         window.open(waUrl, "_blank", "noopener");
       } catch (e) {
