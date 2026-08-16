@@ -6,6 +6,9 @@ import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 
 export default defineConfig({
+  ssr: {
+    noExternal: true
+  },
   plugins: [
     tanstackStart({
       server: { entry: "server" },
@@ -16,7 +19,7 @@ export default defineConfig({
     nitro({
       preset: "vercel",
       externals: {
-        inline: ["tslib"]
+        inline: ["tslib", "@supabase/functions-js", "@supabase/supabase-js", "@supabase/auth-js", "@supabase/postgrest-js", "@supabase/storage-js", "@supabase/realtime-js"]
       }
     }),
   ],
