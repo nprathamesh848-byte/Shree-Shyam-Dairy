@@ -12,6 +12,8 @@ import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { myProfileQuery } from "@/lib/queries";
 import { useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { claimAdminRole } from "@/lib/orders.functions";
 
 export const Route = createFileRoute("/profile/")({
   ssr: false,
@@ -39,6 +41,8 @@ function ProfilePage() {
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [saving, setSaving] = useState(false);
+  const [claiming, setClaiming] = useState(false);
+  const claimAdmin = useServerFn(claimAdminRole);
 
   useEffect(() => {
     if (profile) {
@@ -68,6 +72,23 @@ function ProfilePage() {
     queryClient.clear();
     await supabase.auth.signOut();
     navigate({ to: "/", replace: true });
+  };
+
+  const handleClaimAdmin = async () => {
+    setClaiming(true);
+    try {
+      const res = await claimAdmin();
+      if (res.granted) {
+        toast.success("Admin access granted! Redirecting to dashboard...");
+        window.location.href = "/admin";
+      } else {
+        toast.error("You are not authorized for admin access.");
+      }
+    } catch {
+      toast.error("Failed to check admin status.");
+    } finally {
+      setClaiming(false);
+    }
   };
 
   return (
@@ -106,9 +127,19 @@ function ProfilePage() {
         </Button>
       </div>
 
-      <Button variant="ghost" className="mt-6 text-destructive" onClick={signOut}>
-        <LogOut className="mr-2 h-4 w-4" /> Log out
-      </Button>
+      <div className="mt-6 flex flex-col gap-4 items-start">
+        <Button 
+          variant="secondary" 
+          onClick={handleClaimAdmin} 
+          disabled={claiming}
+          className="rounded-full"
+        >
+          {claiming ? "Checking..." : "Claim Admin Access"}
+        </Button>
+        <Button variant="ghost" className="text-destructive" onClick={signOut}>
+          <LogOut className="mr-2 h-4 w-4" /> Log out
+        </Button>
+      </div>
     </div>
   );
 }
