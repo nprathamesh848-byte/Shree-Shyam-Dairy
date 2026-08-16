@@ -24,4 +24,7 @@ export default defineConfig({
       "@": "/src",
     },
   },
+  ssr: {
+    noExternal: ["tslib", "@supabase/functions-js", "@supabase/supabase-js", "@supabase/auth-js", "@supabase/postgrest-js", "@supabase/storage-js", "@supabase/realtime-js"],
+  },
 });
