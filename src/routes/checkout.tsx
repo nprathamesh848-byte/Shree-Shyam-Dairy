@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { inr } from "@/lib/business";
+import { BUSINESS, buildWhatsAppMessage, buildWhatsAppUrl, inr } from "@/lib/business";
 import { useCart } from "@/lib/cart";
 import { placeOrder, validateCoupon } from "@/lib/orders.functions";
 import { deliverySettingsQuery, myAddressesQuery, myProfileQuery } from "@/lib/queries";
@@ -178,6 +178,27 @@ function CheckoutPage() {
       });
       clear();
       toast.success("Order placed successfully.");
+      const waOrder = {
+        order_number: result.order.order_number,
+        customer_name: result.order.customer_name,
+        customer_mobile: result.order.customer_mobile,
+        address_text: result.order.address_text,
+        landmark: result.order.landmark,
+        city: result.order.city,
+        pincode: result.order.pincode,
+        subtotal: result.order.subtotal,
+        discount: result.order.discount,
+        delivery_charge: result.order.delivery_charge,
+        total: result.order.total,
+        items: result.items,
+      };
+      const waUrl = buildWhatsAppUrl(buildWhatsAppMessage(waOrder));
+      try {
+        window.open(waUrl, "_blank", "noopener");
+      } catch (e) {
+        // Ignore popup blocker errors
+      }
+
       navigate({
         to: "/order-success/$orderNumber",
         params: { orderNumber: result.order.order_number },

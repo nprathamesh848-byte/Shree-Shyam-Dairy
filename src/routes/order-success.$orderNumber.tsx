@@ -60,17 +60,8 @@ function OrderSuccess() {
   useEffect(() => {
     if (!order || opened.current) return;
     opened.current = true;
-    try {
-      const win = window.open(buildWhatsAppUrl(message), "_blank", "noopener");
-      if (!win) {
-        setWhatsAppFailed(true);
-      } else {
-        void flagWhatsApp({ data: { orderNumber } });
-      }
-    } catch {
-      setWhatsAppFailed(true);
-    }
-  }, [order, message, orderNumber, flagWhatsApp]);
+    // Auto-opening moved to checkout.tsx to prevent popup blockers
+  }, [order]);
 
   if (isLoading) {
     return (
