@@ -14,7 +14,7 @@ export default defineConfig({
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     tailwindcss(),
     nitro({
-      preset: process.env["VERCEL"] ? "vercel" : "cloudflare-pages",
+      preset: "vercel",
     }),
   ],
   resolve: {
