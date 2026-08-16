@@ -8,7 +8,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { supabase } from "@/integrations/supabase/client";
 import { inr, ORDER_STATUSES, STATUS_LABELS } from "@/lib/business";
@@ -198,7 +204,8 @@ function AdminOrders() {
                   <p className="text-muted-foreground">{selected.customer_mobile}</p>
                   <p className="text-muted-foreground">
                     {selected.address_text}
-                    {selected.landmark ? `, ${selected.landmark}` : ""}, {selected.city} - {selected.pincode}
+                    {selected.landmark ? `, ${selected.landmark}` : ""}, {selected.city} -{" "}
+                    {selected.pincode}
                   </p>
                 </div>
                 <ul className="space-y-1">
@@ -230,7 +237,9 @@ function AdminOrders() {
                   </div>
                 </div>
                 {selected.notes && (
-                  <p className="rounded-xl bg-muted p-3 text-muted-foreground">Note: {selected.notes}</p>
+                  <p className="rounded-xl bg-muted p-3 text-muted-foreground">
+                    Note: {selected.notes}
+                  </p>
                 )}
                 <div>
                   <p className="mb-2 font-medium">Update status</p>

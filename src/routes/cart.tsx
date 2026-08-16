@@ -45,7 +45,6 @@ function CartPage() {
             />
           </div>
         ) : (
-
           <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_340px]">
             <ul className="space-y-3">
               {items.map((item) => (
@@ -83,7 +82,9 @@ function CartPage() {
                         >
                           <Minus className="h-4 w-4" />
                         </Button>
-                        <span className="w-8 text-center text-sm font-semibold">{item.quantity}</span>
+                        <span className="w-8 text-center text-sm font-semibold">
+                          {item.quantity}
+                        </span>
                         <Button
                           variant="ghost"
                           size="icon"

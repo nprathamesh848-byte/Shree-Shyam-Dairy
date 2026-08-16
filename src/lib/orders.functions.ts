@@ -18,11 +18,17 @@ const placeOrderSchema = z.object({
     .max(50),
   customer: z.object({
     name: z.string().trim().min(2).max(80),
-    mobile: z.string().trim().regex(/^[6-9]\d{9}$/),
+    mobile: z
+      .string()
+      .trim()
+      .regex(/^[6-9]\d{9}$/),
     address: z.string().trim().min(5).max(400),
     landmark: z.string().trim().max(120).optional().or(z.literal("")),
     city: z.string().trim().min(2).max(80),
-    pincode: z.string().trim().regex(/^\d{6}$/),
+    pincode: z
+      .string()
+      .trim()
+      .regex(/^\d{6}$/),
     instructions: z.string().trim().max(300).optional().or(z.literal("")),
   }),
   couponCode: z.string().trim().max(30).optional().or(z.literal("")),
@@ -175,7 +181,8 @@ export const placeOrder = createServerFn({ method: "POST" })
         items: orderItems,
       }),
     );
-    if (emailSent) await supabaseAdmin.from("orders").update({ email_sent: true }).eq("id", order.id);
+    if (emailSent)
+      await supabaseAdmin.from("orders").update({ email_sent: true }).eq("id", order.id);
 
     return {
       order: {
@@ -224,9 +231,8 @@ export const claimAdminRole = createServerFn({ method: "POST" }).handler(async (
   const { data: user } = await supabaseAdmin.auth.admin.getUserById(userId);
   const adminEmail = (process.env["ADMIN_EMAIL"] ?? "kunalchavan9503@gmail.com").toLowerCase();
   if (!user.user?.email || user.user.email.toLowerCase() !== adminEmail) return { granted: false };
-  await supabaseAdmin.from("user_roles").upsert(
-    { user_id: userId, role: "admin" },
-    { onConflict: "user_id,role" },
-  );
+  await supabaseAdmin
+    .from("user_roles")
+    .upsert({ user_id: userId, role: "admin" }, { onConflict: "user_id,role" });
   return { granted: true };
 });

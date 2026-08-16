@@ -205,10 +205,16 @@ function Home() {
 
       {/* CATEGORIES */}
       <section className="mx-auto max-w-6xl px-4 py-8">
-        <SectionHead title="Shop by Category" subtitle="Fresh favorites for every family" to="/products" />
+        <SectionHead
+          title="Shop by Category"
+          subtitle="Fresh favorites for every family"
+          to="/products"
+        />
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {categories.isLoading
-            ? Array.from({ length: 10 }).map((_, i) => <Skeleton key={i} className="h-36 rounded-3xl" />)
+            ? Array.from({ length: 10 }).map((_, i) => (
+                <Skeleton key={i} className="h-36 rounded-3xl" />
+              ))
             : categories.data
                 ?.filter((c) => c.status)
                 .map((c, i) => (
@@ -227,7 +233,6 @@ function Home() {
                             e.currentTarget.src = categoryImage(c.name);
                           }}
                           className="h-24 w-full object-cover transition-transform duration-500 group-hover:scale-110"
-
                         />
                       </div>
                       <span className="pb-1 text-sm font-semibold">{c.name}</span>
@@ -246,7 +251,9 @@ function Home() {
         />
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           {products.isLoading
-            ? Array.from({ length: 8 }).map((_, i) => <Skeleton key={i} className="h-80 rounded-3xl" />)
+            ? Array.from({ length: 8 }).map((_, i) => (
+                <Skeleton key={i} className="h-80 rounded-3xl" />
+              ))
             : products.data?.slice(0, 8).map((p, i) => (
                 <Reveal key={p.id} delay={i * 50}>
                   <ProductCard product={p} />
@@ -258,7 +265,11 @@ function Home() {
       {/* OFFERS */}
       {offers.data && offers.data.length > 0 && (
         <section className="mx-auto max-w-6xl px-4 py-8">
-          <SectionHead title="Fresh Offers For You" subtitle="Save more on every dairy order" to="/offers" />
+          <SectionHead
+            title="Fresh Offers For You"
+            subtitle="Save more on every dairy order"
+            to="/offers"
+          />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {offers.data.slice(0, 3).map((o, i) => (
               <Reveal key={o.id} delay={i * 70}>
@@ -296,7 +307,8 @@ function Home() {
               <div>
                 <h2 className="font-display text-2xl font-bold">Need Help With Your Order?</h2>
                 <p className="mt-1 max-w-lg text-sm text-muted-foreground">
-                  Order directly through WhatsApp and we&apos;ll help you with your dairy requirements.
+                  Order directly through WhatsApp and we&apos;ll help you with your dairy
+                  requirements.
                 </p>
                 <p className="mt-2 text-sm font-semibold">{BUSINESS.phone}</p>
               </div>
@@ -361,8 +373,8 @@ function Home() {
               </span>
               <h2 className="mt-4 font-display text-3xl font-bold">Freshness You Can Trust</h2>
               <p className="mt-3 max-w-md text-muted-foreground">
-                From our dairy to your doorstep. Milk, curd, paneer and lassi prepared every morning and
-                delivered the same day — nothing stored, nothing stale.
+                From our dairy to your doorstep. Milk, curd, paneer and lassi prepared every morning
+                and delivered the same day — nothing stored, nothing stale.
               </p>
               <Button asChild className="mt-6 rounded-full px-6">
                 <Link to="/products">Explore Products</Link>
@@ -387,7 +399,9 @@ function Home() {
 
       {/* REVIEWS */}
       <section className="mx-auto max-w-6xl px-4 pb-16">
-        <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">What Our Customers Say</h2>
+        <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">
+          What Our Customers Say
+        </h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {REVIEWS.map((r, i) => (
             <Reveal key={r.name} delay={i * 80}>
@@ -405,7 +419,9 @@ function Home() {
                         <Star
                           key={s}
                           className={
-                            s < r.rating ? "h-3.5 w-3.5 fill-accent text-accent" : "h-3.5 w-3.5 text-border"
+                            s < r.rating
+                              ? "h-3.5 w-3.5 fill-accent text-accent"
+                              : "h-3.5 w-3.5 text-border"
                           }
                         />
                       ))}

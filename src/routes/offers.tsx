@@ -15,7 +15,10 @@ export const Route = createFileRoute("/offers")({
   head: () => ({
     meta: [
       { title: "Offers & Coupons — Shree Shyam Dairy" },
-      { name: "description", content: "Live discounts on milk, paneer, lassi and more at Shree Shyam Dairy." },
+      {
+        name: "description",
+        content: "Live discounts on milk, paneer, lassi and more at Shree Shyam Dairy.",
+      },
       { property: "og:title", content: "Offers & Coupons — Shree Shyam Dairy" },
       { property: "og:description", content: "Save on fresh dairy with our running offers." },
     ],
@@ -30,7 +33,9 @@ function OffersPage() {
     <CustomerLayout>
       <div className="mx-auto max-w-5xl px-4 py-8">
         <h1 className="font-display text-3xl font-bold">Offers</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Apply the coupon code at checkout to save.</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Apply the coupon code at checkout to save.
+        </p>
 
         {isLoading ? (
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -56,7 +61,9 @@ function OffersPage() {
                 <ul className="space-y-1 text-xs text-muted-foreground">
                   {Number(o.minimum_order) > 0 && <li>Minimum order {inr(o.minimum_order)}</li>}
                   {o.maximum_discount && <li>Maximum discount {inr(o.maximum_discount)}</li>}
-                  {o.end_date && <li>Valid till {new Date(o.end_date).toLocaleDateString("en-IN")}</li>}
+                  {o.end_date && (
+                    <li>Valid till {new Date(o.end_date).toLocaleDateString("en-IN")}</li>
+                  )}
                   {o.terms && <li>{o.terms}</li>}
                 </ul>
                 {o.coupon_code && (

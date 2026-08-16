@@ -20,7 +20,13 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
 import { myAddressesQuery } from "@/lib/queries";
@@ -46,11 +52,17 @@ export const Route = createFileRoute("/profile/addresses")({
 
 const schema = z.object({
   name: z.string().trim().min(2).max(80),
-  mobile: z.string().trim().regex(/^[6-9]\d{9}$/),
+  mobile: z
+    .string()
+    .trim()
+    .regex(/^[6-9]\d{9}$/),
   address: z.string().trim().min(5).max(400),
   landmark: z.string().trim().max(120),
   city: z.string().trim().min(2).max(80),
-  pincode: z.string().trim().regex(/^\d{6}$/),
+  pincode: z
+    .string()
+    .trim()
+    .regex(/^\d{6}$/),
   type: z.string(),
 });
 
@@ -149,7 +161,10 @@ function AddressesPage() {
             </DialogHeader>
             <div className="space-y-3">
               <Labeled label="Full name">
-                <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                <Input
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
               </Labeled>
               <Labeled label="Mobile">
                 <Input
@@ -173,7 +188,10 @@ function AddressesPage() {
               </Labeled>
               <div className="grid grid-cols-2 gap-3">
                 <Labeled label="City">
-                  <Input value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
+                  <Input
+                    value={form.city}
+                    onChange={(e) => setForm({ ...form, city: e.target.value })}
+                  />
                 </Labeled>
                 <Labeled label="Pincode">
                   <Input
@@ -242,7 +260,12 @@ function AddressesPage() {
                 </div>
                 <div className="flex shrink-0 gap-1">
                   {!a.is_default && (
-                    <Button variant="ghost" size="icon" onClick={() => setDefault(a.id)} aria-label="Set default">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setDefault(a.id)}
+                      aria-label="Set default"
+                    >
                       <Star className="h-4 w-4" />
                     </Button>
                   )}
@@ -267,7 +290,12 @@ function AddressesPage() {
                   >
                     <Pencil className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="icon" aria-label="Delete" onClick={() => remove(a.id)}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Delete"
+                    onClick={() => remove(a.id)}
+                  >
                     <Trash2 className="h-4 w-4 text-destructive" />
                   </Button>
                 </div>

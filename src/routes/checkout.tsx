@@ -24,7 +24,10 @@ export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
       { title: "Checkout — Shree Shyam Dairy" },
-      { name: "description", content: "Enter delivery details and place your cash on delivery order." },
+      {
+        name: "description",
+        content: "Enter delivery details and place your cash on delivery order.",
+      },
       { property: "og:title", content: "Checkout — Shree Shyam Dairy" },
       { property: "og:description", content: "Cash on delivery checkout for fresh dairy orders." },
     ],
@@ -34,11 +37,17 @@ export const Route = createFileRoute("/checkout")({
 
 const formSchema = z.object({
   name: z.string().trim().min(2, "Enter your full name").max(80),
-  mobile: z.string().trim().regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit mobile number"),
+  mobile: z
+    .string()
+    .trim()
+    .regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit mobile number"),
   address: z.string().trim().min(5, "Enter your delivery address").max(400),
   landmark: z.string().trim().max(120).optional(),
   city: z.string().trim().min(2, "Enter your city").max(80),
-  pincode: z.string().trim().regex(/^\d{6}$/, "Enter a valid 6-digit pincode"),
+  pincode: z
+    .string()
+    .trim()
+    .regex(/^\d{6}$/, "Enter a valid 6-digit pincode"),
   instructions: z.string().trim().max(300).optional(),
 });
 
@@ -187,7 +196,10 @@ function CheckoutPage() {
 
   return (
     <CustomerLayout>
-      <form onSubmit={submit} className="mx-auto grid max-w-5xl gap-6 px-4 py-8 lg:grid-cols-[1fr_340px]">
+      <form
+        onSubmit={submit}
+        className="mx-auto grid max-w-5xl gap-6 px-4 py-8 lg:grid-cols-[1fr_340px]"
+      >
         <div className="space-y-6">
           <div>
             <h1 className="font-display text-3xl font-bold">Checkout</h1>
@@ -206,7 +218,10 @@ function CheckoutPage() {
             <h2 className="font-display text-lg font-bold">Delivery information</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Full Name" error={errors["name"]}>
-                <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                <Input
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
               </Field>
               <Field label="Mobile Number" error={errors["mobile"]}>
                 <Input
@@ -232,7 +247,10 @@ function CheckoutPage() {
                 />
               </Field>
               <Field label="City" error={errors["city"]}>
-                <Input value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
+                <Input
+                  value={form.city}
+                  onChange={(e) => setForm({ ...form, city: e.target.value })}
+                />
               </Field>
               <Field label="Pincode" error={errors["pincode"]}>
                 <Input
@@ -288,7 +306,13 @@ function CheckoutPage() {
               onChange={(e) => setCoupon(e.target.value.toUpperCase())}
               className="rounded-full"
             />
-            <Button type="button" variant="outline" className="rounded-full" onClick={applyCoupon} disabled={checking}>
+            <Button
+              type="button"
+              variant="outline"
+              className="rounded-full"
+              onClick={applyCoupon}
+              disabled={checking}
+            >
               {checking ? <Loader2 className="h-4 w-4 animate-spin" /> : "Apply"}
             </Button>
           </div>
@@ -298,7 +322,9 @@ function CheckoutPage() {
               <dd>{inr(subtotal)}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-muted-foreground">Discount{appliedCode ? ` (${appliedCode})` : ""}</dt>
+              <dt className="text-muted-foreground">
+                Discount{appliedCode ? ` (${appliedCode})` : ""}
+              </dt>
               <dd>-{inr(discount)}</dd>
             </div>
             <div className="flex justify-between">

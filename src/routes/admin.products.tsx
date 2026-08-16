@@ -7,10 +7,22 @@ import { toast } from "sonner";
 import { AdminLayout, AdminPageHeader } from "@/components/admin/AdminLayout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
@@ -164,7 +176,11 @@ function AdminProducts() {
         return;
       }
     } else {
-      const { data: inserted, error } = await supabase.from("products").insert(payload).select("id").single();
+      const { data: inserted, error } = await supabase
+        .from("products")
+        .insert(payload)
+        .select("id")
+        .single();
       if (error || !inserted) {
         setSaving(false);
         toast.error("Could not create the product.");
@@ -185,7 +201,10 @@ function AdminProducts() {
         unit: v.unit,
         quantity: Number(v.quantity) || 0,
         price: Number(v.price),
-        mrp: v.mrp === null || v.mrp === undefined || Number.isNaN(Number(v.mrp)) ? null : Number(v.mrp),
+        mrp:
+          v.mrp === null || v.mrp === undefined || Number.isNaN(Number(v.mrp))
+            ? null
+            : Number(v.mrp),
         stock: Number(v.stock) || 0,
         minimum_stock: Number(v.minimum_stock) || 0,
         status: v.status,
@@ -258,7 +277,12 @@ function AdminProducts() {
           {filtered.map((p) => (
             <div key={p.id} className="surface-card flex flex-wrap items-center gap-4 p-4">
               {p.image && (
-                <img src={p.image} alt={p.name} className="h-14 w-14 rounded-xl object-cover" loading="lazy" />
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  className="h-14 w-14 rounded-xl object-cover"
+                  loading="lazy"
+                />
               )}
               <div className="min-w-0 flex-1">
                 <p className="flex items-center gap-2 font-semibold">
@@ -294,7 +318,12 @@ function AdminProducts() {
                 >
                   <Pencil className="h-4 w-4" />
                 </Button>
-                <Button variant="ghost" size="icon" aria-label="Delete" onClick={() => remove(p.id)}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Delete"
+                  onClick={() => remove(p.id)}
+                >
                   <Trash2 className="h-4 w-4 text-destructive" />
                 </Button>
               </div>
@@ -312,7 +341,10 @@ function AdminProducts() {
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="space-y-1.5">
                 <Label>Name</Label>
-                <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                <Input
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
               </div>
               <div className="space-y-1.5">
                 <Label>Category</Label>
@@ -335,7 +367,10 @@ function AdminProducts() {
             </div>
             <div className="space-y-1.5">
               <Label>Image URL</Label>
-              <Input value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} />
+              <Input
+                value={form.image}
+                onChange={(e) => setForm({ ...form, image: e.target.value })}
+              />
             </div>
             <div className="space-y-1.5">
               <Label>Description</Label>
@@ -372,7 +407,10 @@ function AdminProducts() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Switch checked={form.status} onCheckedChange={(v) => setForm({ ...form, status: v })} />
+              <Switch
+                checked={form.status}
+                onCheckedChange={(v) => setForm({ ...form, status: v })}
+              />
               <Label>Active</Label>
             </div>
 
@@ -382,16 +420,24 @@ function AdminProducts() {
                 <Button
                   size="sm"
                   variant="outline"
-                  onClick={() => setForm({ ...form, variants: [...form.variants, { ...EMPTY_VARIANT }] })}
+                  onClick={() =>
+                    setForm({ ...form, variants: [...form.variants, { ...EMPTY_VARIANT }] })
+                  }
                 >
                   <Plus className="mr-1 h-4 w-4" /> Add variant
                 </Button>
               </div>
               <div className="mt-3 space-y-3">
                 {form.variants.map((v, i) => (
-                  <div key={i} className="grid grid-cols-2 gap-2 rounded-xl bg-muted/40 p-3 sm:grid-cols-4">
+                  <div
+                    key={i}
+                    className="grid grid-cols-2 gap-2 rounded-xl bg-muted/40 p-3 sm:grid-cols-4"
+                  >
                     <Field label="Label">
-                      <Input value={v.label} onChange={(e) => setVariant(i, { label: e.target.value })} />
+                      <Input
+                        value={v.label}
+                        onChange={(e) => setVariant(i, { label: e.target.value })}
+                      />
                     </Field>
                     <Field label="Unit">
                       <Select value={v.unit} onValueChange={(u) => setVariant(i, { unit: u })}>
@@ -426,7 +472,9 @@ function AdminProducts() {
                         type="number"
                         value={v.mrp ?? ""}
                         onChange={(e) =>
-                          setVariant(i, { mrp: e.target.value === "" ? null : Number(e.target.value) })
+                          setVariant(i, {
+                            mrp: e.target.value === "" ? null : Number(e.target.value),
+                          })
                         }
                       />
                     </Field>

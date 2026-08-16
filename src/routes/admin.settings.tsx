@@ -75,8 +75,14 @@ function AdminSettings() {
       delivery_charge: Number(delivery.delivery_charge) || 0,
       free_delivery_threshold: Number(delivery.free_delivery_threshold) || 0,
       minimum_order: Number(delivery.minimum_order) || 0,
-      areas: delivery.areas.split(",").map((s) => s.trim()).filter(Boolean),
-      pincodes: delivery.pincodes.split(",").map((s) => s.trim()).filter(Boolean),
+      areas: delivery.areas
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean),
+      pincodes: delivery.pincodes
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean),
     };
     const { error } = await supabase
       .from("settings")
@@ -103,7 +109,9 @@ function AdminSettings() {
             <Input
               type="number"
               value={delivery.delivery_charge}
-              onChange={(e) => setDelivery({ ...delivery, delivery_charge: Number(e.target.value) })}
+              onChange={(e) =>
+                setDelivery({ ...delivery, delivery_charge: Number(e.target.value) })
+              }
             />
           </div>
           <div className="space-y-1.5">

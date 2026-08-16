@@ -122,14 +122,14 @@ There is NO online payment system.
 
 Do not create:
 
-* Payment Gateway
-* Razorpay
-* Stripe
-* PayPal
-* Card payment
-* UPI payment
-* Net Banking
-* Wallet payment
+- Payment Gateway
+- Razorpay
+- Stripe
+- PayPal
+- Card payment
+- UPI payment
+- Net Banking
+- Wallet payment
 
 Only:
 
@@ -153,12 +153,12 @@ Build a modern mobile-first customer application.
 
 Customer navigation:
 
-* Home
-* Products
-* Offers
-* Cart
-* Orders
-* Profile
+- Home
+- Products
+- Offers
+- Cart
+- Orders
+- Profile
 
 Do NOT display Admin Dashboard anywhere in the customer navigation.
 
@@ -170,11 +170,11 @@ Create a premium, clean dairy-themed homepage.
 
 Header:
 
-* Shree Shyam Dairy logo
-* Business/location information
-* Search
-* Cart
-* Profile
+- Shree Shyam Dairy logo
+- Business/location information
+- Search
+- Cart
+- Profile
 
 Hero section:
 
@@ -186,8 +186,8 @@ Subtitle:
 
 Buttons:
 
-* Shop Now
-* View Offers
+- Shop Now
+- View Offers
 
 Display attractive dairy product imagery.
 
@@ -197,16 +197,16 @@ Display attractive dairy product imagery.
 
 Create categories:
 
-* Milk
-* Curd
-* Paneer
-* Lassi
-* Buttermilk
-* Butter
-* Ghee
-* Cheese
-* Flavoured Milk
-* Other Dairy Products
+- Milk
+- Curd
+- Paneer
+- Lassi
+- Buttermilk
+- Butter
+- Ghee
+- Cheese
+- Flavoured Milk
+- Other Dairy Products
 
 Show categories as attractive cards.
 
@@ -220,16 +220,16 @@ Create a product listing page.
 
 Every product card should contain:
 
-* Product image
-* Product name
-* Short description
-* Available variants
-* Price
-* Discount price
-* Original price if discounted
-* Discount percentage
-* Stock status
-* Add to Cart
+- Product image
+- Product name
+- Short description
+- Available variants
+- Price
+- Discount price
+- Original price if discounted
+- Discount percentage
+- Stock status
+- Add to Cart
 
 Example:
 
@@ -265,17 +265,17 @@ Create a detailed product page.
 
 Show:
 
-* Product image
-* Product name
-* Description
-* Ingredients
-* Benefits
-* Storage instructions
-* Available variants
-* Price
-* Discount
-* Stock status
-* Quantity selector
+- Product image
+- Product name
+- Description
+- Ingredients
+- Benefits
+- Storage instructions
+- Available variants
+- Price
+- Discount
+- Stock status
+- Quantity selector
 
 Buttons:
 
@@ -291,13 +291,13 @@ Implement product search.
 
 Customer can search:
 
-* Milk
-* Paneer
-* Curd
-* Lassi
-* Butter
-* Ghee
-* etc.
+- Milk
+- Paneer
+- Curd
+- Lassi
+- Butter
+- Ghee
+- etc.
 
 Use debounced search.
 
@@ -313,20 +313,20 @@ Show active offers.
 
 Examples:
 
-* 10% OFF on Paneer
-* Buy 2 Milk Packs & Save ₹10
-* Weekend Lassi Offer
-* ₹50 OFF on orders above ₹500
+- 10% OFF on Paneer
+- Buy 2 Milk Packs & Save ₹10
+- Weekend Lassi Offer
+- ₹50 OFF on orders above ₹500
 
 Each offer should contain:
 
-* Title
-* Description
-* Discount
-* Validity
-* Applicable products
-* Coupon code if applicable
-* Terms
+- Title
+- Description
+- Discount
+- Validity
+- Applicable products
+- Coupon code if applicable
+- Terms
 
 Expired offers should automatically disappear.
 
@@ -338,26 +338,26 @@ Create a complete cart system.
 
 Each cart item:
 
-* Product image
-* Product name
-* Variant
-* Price
-* Quantity
-* Subtotal
-* Remove
+- Product image
+- Product name
+- Variant
+- Price
+- Quantity
+- Subtotal
+- Remove
 
 Controls:
 
-* *
-* −
-* Remove
+- -
+- −
+- Remove
 
 Order summary:
 
-* Subtotal
-* Discount
-* Delivery charge
-* Final total
+- Subtotal
+- Discount
+- Delivery charge
+- Final total
 
 Buttons:
 
@@ -375,16 +375,16 @@ Create a simple checkout page.
 
 Customer information:
 
-* Full Name
-* Mobile Number
-* Delivery Address
-* Landmark
-* City
-* Pincode
+- Full Name
+- Mobile Number
+- Delivery Address
+- Landmark
+- City
+- Pincode
 
 Optional:
 
-* Delivery instructions
+- Delivery instructions
 
 ---
 
@@ -496,19 +496,19 @@ Generate this message dynamically from the actual order.
 
 The WhatsApp message must contain:
 
-* Order ID
-* Customer name
-* Customer phone
-* Delivery address
-* Items
-* Variants
-* Quantities
-* Individual prices
-* Subtotals
-* Discount
-* Delivery charge
-* Final total
-* Payment method
+- Order ID
+- Customer name
+- Customer phone
+- Delivery address
+- Items
+- Variants
+- Quantities
+- Individual prices
+- Subtotals
+- Discount
+- Delivery charge
+- Final total
+- Payment method
 
 Do not hardcode order information.
 
@@ -594,11 +594,11 @@ Use environment variables for email credentials.
 
 Possible implementation:
 
-* Node.js email service
-* Nodemailer
-* SMTP
-* Resend
-* Supabase Edge Function
+- Node.js email service
+- Nodemailer
+- SMTP
+- Resend
+- Supabase Edge Function
 
 The frontend should never contain private SMTP/API credentials.
 
@@ -640,21 +640,21 @@ Customer can view their previous orders.
 
 Display:
 
-* Order ID
-* Date
-* Products
-* Total
-* Payment method
-* Order status
+- Order ID
+- Date
+- Products
+- Total
+- Payment method
+- Order status
 
 Statuses:
 
-* Pending
-* Confirmed
-* Preparing
-* Out for Delivery
-* Delivered
-* Cancelled
+- Pending
+- Confirmed
+- Preparing
+- Out for Delivery
+- Delivered
+- Cancelled
 
 ---
 
@@ -684,34 +684,34 @@ Customer profile should contain:
 
 ### Personal Information
 
-* Name
-* Mobile
-* Email
+- Name
+- Mobile
+- Email
 
 ### Addresses
 
 Customer can:
 
-* Add address
-* Edit address
-* Delete address
-* Set default address
+- Add address
+- Edit address
+- Delete address
+- Set default address
 
 Address fields:
 
-* Full name
-* Mobile
-* Address
-* Landmark
-* City
-* Pincode
-* Type
+- Full name
+- Mobile
+- Address
+- Landmark
+- City
+- Pincode
+- Type
 
 Types:
 
-* Home
-* Work
-* Other
+- Home
+- Work
+- Other
 
 ---
 
@@ -719,18 +719,18 @@ Types:
 
 Implement:
 
-* Sign Up
-* Login
-* Logout
-* Forgot Password
-* Reset Password
+- Sign Up
+- Login
+- Logout
+- Forgot Password
+- Reset Password
 
 Customer fields:
 
-* Name
-* Mobile
-* Email
-* Password
+- Name
+- Mobile
+- Email
+- Password
 
 Use secure authentication.
 
@@ -740,12 +740,12 @@ Use secure authentication.
 
 Notify customers about:
 
-* Order confirmed
-* Preparing
-* Out for delivery
-* Delivered
-* Cancelled
-* New offers
+- Order confirmed
+- Preparing
+- Out for delivery
+- Delivered
+- Cancelled
+- New offers
 
 Create a notification center.
 
@@ -779,8 +779,8 @@ Create protected admin authentication.
 
 Admin login:
 
-* Email
-* Password
+- Email
+- Password
 
 Only users with an admin role can access the admin dashboard.
 
@@ -806,15 +806,15 @@ Create:
 
 Show:
 
-* Total Orders
-* Today's Orders
-* Pending Orders
-* Today's Revenue
-* Monthly Revenue
-* Total Customers
-* Total Products
-* Active Offers
-* Low Stock Products
+- Total Orders
+- Today's Orders
+- Pending Orders
+- Today's Revenue
+- Monthly Revenue
+- Total Customers
+- Total Products
+- Active Offers
+- Low Stock Products
 
 Charts:
 
@@ -824,12 +824,12 @@ Daily / Weekly / Monthly sales.
 
 ### Order Status Chart
 
-* Pending
-* Confirmed
-* Preparing
-* Out for Delivery
-* Delivered
-* Cancelled
+- Pending
+- Confirmed
+- Preparing
+- Out for Delivery
+- Delivered
+- Cancelled
 
 ### Top Products
 
@@ -845,25 +845,25 @@ Route:
 
 Admin can:
 
-* Add product
-* Edit product
-* Delete product
-* Activate/deactivate product
-* Upload product image
-* Manage price
-* Manage stock
-* Manage variants
+- Add product
+- Edit product
+- Delete product
+- Activate/deactivate product
+- Upload product image
+- Manage price
+- Manage stock
+- Manage variants
 
 Product fields:
 
-* Name
-* Category
-* Description
-* Image
-* Ingredients
-* Benefits
-* Storage instructions
-* Status
+- Name
+- Category
+- Description
+- Image
+- Ingredients
+- Benefits
+- Storage instructions
+- Status
 
 ---
 
@@ -883,11 +883,11 @@ Milk:
 
 Each variant has:
 
-* Quantity
-* Unit
-* Price
-* Stock
-* Status
+- Quantity
+- Unit
+- Price
+- Stock
+- Status
 
 ---
 
@@ -899,11 +899,11 @@ Route:
 
 Admin can:
 
-* Add
-* Edit
-* Delete
-* Activate
-* Deactivate
+- Add
+- Edit
+- Delete
+- Activate
+- Deactivate
 
 Categories:
 
@@ -933,17 +933,17 @@ Route:
 
 Display:
 
-* Product
-* Variant
-* Current stock
-* Minimum stock
-* Stock status
+- Product
+- Variant
+- Current stock
+- Minimum stock
+- Stock status
 
 Statuses:
 
-* In Stock
-* Low Stock
-* Out of Stock
+- In Stock
+- Low Stock
+- Out of Stock
 
 Automatically decrease stock after an order.
 
@@ -959,14 +959,14 @@ Route:
 
 Display:
 
-* Order ID
-* Customer
-* Mobile
-* Date
-* Items
-* Total
-* Payment method
-* Order status
+- Order ID
+- Customer
+- Mobile
+- Date
+- Items
+- Total
+- Payment method
+- Order status
 
 Admin can open order details.
 
@@ -980,11 +980,11 @@ Pending
 
 Admin can also:
 
-* Cancel order
-* View customer
-* View address
-* View order items
-* View WhatsApp order status if stored
+- Cancel order
+- View customer
+- View address
+- View order items
+- View WhatsApp order status if stored
 
 ---
 
@@ -996,19 +996,19 @@ Route:
 
 Show:
 
-* Customer name
-* Mobile
-* Email
-* Total orders
-* Total spending
-* Last order
-* Account status
+- Customer name
+- Mobile
+- Email
+- Total orders
+- Total spending
+- Last order
+- Account status
 
 Admin can:
 
-* View customer
-* View order history
-* Activate/deactivate account
+- View customer
+- View order history
+- Activate/deactivate account
 
 ---
 
@@ -1020,32 +1020,32 @@ Route:
 
 Admin can:
 
-* Create offer
-* Edit offer
-* Delete offer
-* Activate offer
-* Deactivate offer
+- Create offer
+- Edit offer
+- Delete offer
+- Activate offer
+- Deactivate offer
 
 Fields:
 
-* Offer name
-* Description
-* Discount type
-* Discount value
-* Minimum order
-* Maximum discount
-* Applicable products
-* Applicable categories
-* Start date
-* End date
-* Status
+- Offer name
+- Description
+- Discount type
+- Discount value
+- Minimum order
+- Maximum discount
+- Applicable products
+- Applicable categories
+- Start date
+- End date
+- Status
 
 Discount types:
 
-* Percentage
-* Fixed amount
-* Product-specific
-* Buy X Get Y
+- Percentage
+- Fixed amount
+- Product-specific
+- Buy X Get Y
 
 ---
 
@@ -1057,14 +1057,14 @@ Route:
 
 Fields:
 
-* Coupon code
-* Discount type
-* Discount value
-* Minimum order
-* Maximum discount
-* Usage limit
-* Expiry
-* Status
+- Coupon code
+- Discount type
+- Discount value
+- Minimum order
+- Maximum discount
+- Usage limit
+- Expiry
+- Status
 
 Customer can apply coupon during checkout.
 
@@ -1082,14 +1082,14 @@ Admin can create homepage banners.
 
 Fields:
 
-* Image
-* Title
-* Subtitle
-* Button text
-* Destination
-* Start date
-* End date
-* Status
+- Image
+- Title
+- Subtitle
+- Button text
+- Destination
+- Start date
+- End date
+- Status
 
 ---
 
@@ -1101,11 +1101,11 @@ Route:
 
 Admin can configure:
 
-* Delivery charge
-* Free delivery threshold
-* Minimum order
-* Delivery areas
-* Pincodes
+- Delivery charge
+- Free delivery threshold
+- Minimum order
+- Delivery areas
+- Pincodes
 
 Example:
 
@@ -1131,14 +1131,14 @@ Admin can send announcements.
 
 Target:
 
-* All customers
-* Selected customers
+- All customers
+- Selected customers
 
 Notification types:
 
-* Offer
-* Announcement
-* General
+- Offer
+- Announcement
+- General
 
 ---
 
@@ -1152,29 +1152,29 @@ Show:
 
 ### Sales
 
-* Today
-* This week
-* This month
-* This year
+- Today
+- This week
+- This month
+- This year
 
 ### Orders
 
-* Total
-* Delivered
-* Cancelled
-* Pending
+- Total
+- Delivered
+- Cancelled
+- Pending
 
 ### Products
 
-* Best sellers
-* Low sellers
-* Out of stock
+- Best sellers
+- Low sellers
+- Out of stock
 
 ### Customers
 
-* New customers
-* Returning customers
-* Top customers
+- New customers
+- Returning customers
+- Top customers
 
 Allow date filters.
 
@@ -1192,28 +1192,28 @@ Sections:
 
 ### Business
 
-* Dairy name
-* Logo
-* Phone
-* Email
-* Address
-* Business hours
+- Dairy name
+- Logo
+- Phone
+- Email
+- Address
+- Business hours
 
 ### Delivery
 
-* Delivery charge
-* Free delivery threshold
-* Delivery areas
+- Delivery charge
+- Free delivery threshold
+- Delivery areas
 
 ### Orders
 
-* Minimum order
-* Order acceptance
+- Minimum order
+- Order acceptance
 
 ### Notifications
 
-* Email notifications
-* Customer notifications
+- Email notifications
+- Customer notifications
 
 Business contact values should default to:
 
@@ -1269,95 +1269,95 @@ Create these tables.
 
 ## users
 
-* id
-* name
-* email
-* mobile
-* role
-* status
-* created_at
+- id
+- name
+- email
+- mobile
+- role
+- status
+- created_at
 
 Roles:
 
-* customer
-* admin
-* manager
-* staff
+- customer
+- admin
+- manager
+- staff
 
 ---
 
 ## categories
 
-* id
-* name
-* description
-* image
-* status
-* created_at
+- id
+- name
+- description
+- image
+- status
+- created_at
 
 ---
 
 ## products
 
-* id
-* category_id
-* name
-* description
-* image
-* ingredients
-* benefits
-* storage_instructions
-* status
-* created_at
-* updated_at
+- id
+- category_id
+- name
+- description
+- image
+- ingredients
+- benefits
+- storage_instructions
+- status
+- created_at
+- updated_at
 
 ---
 
 ## product_variants
 
-* id
-* product_id
-* quantity
-* unit
-* price
-* stock
-* minimum_stock
-* status
+- id
+- product_id
+- quantity
+- unit
+- price
+- stock
+- minimum_stock
+- status
 
 ---
 
 ## addresses
 
-* id
-* user_id
-* name
-* mobile
-* address
-* landmark
-* city
-* pincode
-* type
-* is_default
+- id
+- user_id
+- name
+- mobile
+- address
+- landmark
+- city
+- pincode
+- type
+- is_default
 
 ---
 
 ## orders
 
-* id
-* order_number
-* user_id
-* subtotal
-* discount
-* delivery_charge
-* total
-* payment_method
-* payment_status
-* order_status
-* address_id
-* whatsapp_sent
-* email_sent
-* created_at
-* updated_at
+- id
+- order_number
+- user_id
+- subtotal
+- discount
+- delivery_charge
+- total
+- payment_method
+- payment_status
+- order_status
+- address_id
+- whatsapp_sent
+- email_sent
+- created_at
+- updated_at
 
 Payment method should always be:
 
@@ -1367,80 +1367,80 @@ Payment method should always be:
 
 ## order_items
 
-* id
-* order_id
-* product_id
-* variant_id
-* quantity
-* price
-* subtotal
+- id
+- order_id
+- product_id
+- variant_id
+- quantity
+- price
+- subtotal
 
 ---
 
 ## offers
 
-* id
-* name
-* description
-* discount_type
-* discount_value
-* minimum_order
-* maximum_discount
-* start_date
-* end_date
-* status
+- id
+- name
+- description
+- discount_type
+- discount_value
+- minimum_order
+- maximum_discount
+- start_date
+- end_date
+- status
 
 ---
 
 ## coupons
 
-* id
-* code
-* discount_type
-* discount_value
-* minimum_order
-* maximum_discount
-* usage_limit
-* used_count
-* expiry_date
-* status
+- id
+- code
+- discount_type
+- discount_value
+- minimum_order
+- maximum_discount
+- usage_limit
+- used_count
+- expiry_date
+- status
 
 ---
 
 ## banners
 
-* id
-* title
-* subtitle
-* image
-* button_text
-* button_link
-* start_date
-* end_date
-* status
+- id
+- title
+- subtitle
+- image
+- button_text
+- button_link
+- start_date
+- end_date
+- status
 
 ---
 
 ## inventory
 
-* id
-* product_id
-* variant_id
-* stock
-* minimum_stock
-* updated_at
+- id
+- product_id
+- variant_id
+- stock
+- minimum_stock
+- updated_at
 
 ---
 
 ## notifications
 
-* id
-* user_id
-* title
-* message
-* type
-* is_read
-* created_at
+- id
+- user_id
+- title
+- message
+- type
+- is_read
+- created_at
 
 ---
 
@@ -1478,9 +1478,9 @@ The destination business number is:
 
 Never place:
 
-* SMTP password
-* Email API key
-* Secret key
+- SMTP password
+- Email API key
+- Secret key
 
 inside React frontend code.
 
@@ -1508,10 +1508,10 @@ Never commit secrets to GitHub.
 
 Never trust:
 
-* Product price from frontend
-* Discount from frontend
-* Total from frontend
-* Delivery charge from frontend
+- Product price from frontend
+- Discount from frontend
+- Total from frontend
+- Delivery charge from frontend
 
 The backend must fetch the current product prices and calculate:
 
@@ -1559,19 +1559,19 @@ Decrease inventory.
 
 Customers can only access:
 
-* Their own profile
-* Their own addresses
-* Their own orders
-* Their own notifications
+- Their own profile
+- Their own addresses
+- Their own orders
+- Their own notifications
 
 Customers must never be able to access:
 
-* Other customers
-* Admin data
-* All orders
-* Inventory
-* Business reports
-* Admin settings
+- Other customers
+- Admin data
+- All orders
+- Inventory
+- Business reports
+- Admin settings
 
 Use database-level security/RLS where applicable.
 
@@ -1597,29 +1597,29 @@ Protect the API/database as well.
 
 Customer design:
 
-* Modern
-* Clean
-* Fresh
-* Mobile-first
-* Rounded cards
-* Attractive product images
-* Clear prices
-* Easy checkout
-* Simple navigation
+- Modern
+- Clean
+- Fresh
+- Mobile-first
+- Rounded cards
+- Attractive product images
+- Clear prices
+- Easy checkout
+- Simple navigation
 
 Admin design:
 
-* Professional SaaS dashboard
-* Sidebar
-* Top header
-* KPI cards
-* Tables
-* Charts
-* Filters
-* Search
-* Pagination
-* Modals
-* Toast notifications
+- Professional SaaS dashboard
+- Sidebar
+- Top header
+- KPI cards
+- Tables
+- Charts
+- Filters
+- Search
+- Pagination
+- Modals
+- Toast notifications
 
 ---
 
@@ -1675,11 +1675,11 @@ Button:
 
 Implement:
 
-* Skeleton loaders
-* Button loading states
-* Page loading states
-* Image loading
-* Order creation loading
+- Skeleton loaders
+- Button loading states
+- Page loading states
+- Image loading
+- Order creation loading
 
 While placing an order:
 
@@ -1920,14 +1920,14 @@ Support:
 
 Test:
 
-* Navbar
-* Product cards
-* Cart
-* Checkout
-* Forms
-* Admin tables
-* Dashboard
-* Charts
+- Navbar
+- Product cards
+- Cart
+- Checkout
+- Forms
+- Admin tables
+- Dashboard
+- Charts
 
 ---
 
@@ -1935,13 +1935,13 @@ Test:
 
 Implement:
 
-* Lazy loading
-* Image optimization
-* Pagination
-* Database indexes
-* Debounced search
-* Efficient database queries
-* Caching where useful
+- Lazy loading
+- Image optimization
+- Pagination
+- Database indexes
+- Debounced search
+- Efficient database queries
+- Caching where useful
 
 Do not load thousands of products/orders at once.
 
@@ -2085,21 +2085,21 @@ Every major button must work.
 
 Implement real:
 
-* Authentication
-* Database
-* CRUD
-* Product management
-* Cart
-* Checkout
-* Orders
-* Inventory
-* Offers
-* Coupons
-* Admin dashboard
-* Customer management
-* WhatsApp order generation
-* Email notification
-* Order status management
+- Authentication
+- Database
+- CRUD
+- Product management
+- Cart
+- Checkout
+- Orders
+- Inventory
+- Offers
+- Coupons
+- Admin dashboard
+- Customer management
+- WhatsApp order generation
+- Email notification
+- Order status management
 
 Do not use fake buttons.
 

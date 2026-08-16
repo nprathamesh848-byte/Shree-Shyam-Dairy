@@ -48,7 +48,8 @@ export async function computeCoupon(
     .select("*")
     .eq("code", code.trim().toUpperCase())
     .maybeSingle();
-  if (!data || !data.status) return { discount: 0, code: null, error: "This coupon code is not valid." };
+  if (!data || !data.status)
+    return { discount: 0, code: null, error: "This coupon code is not valid." };
   if (data.expiry_date && new Date(data.expiry_date) < new Date())
     return { discount: 0, code: null, error: "This coupon has expired." };
   if (data.usage_limit != null && data.used_count >= data.usage_limit)
@@ -81,7 +82,13 @@ export function buildOrderEmailHtml(order: {
   delivery_charge: number;
   total: number;
   created_at: string;
-  items: Array<{ product_name: string; variant_label: string; quantity: number; price: number; subtotal: number }>;
+  items: Array<{
+    product_name: string;
+    variant_label: string;
+    quantity: number;
+    price: number;
+    subtotal: number;
+  }>;
 }) {
   const rows = order.items
     .map(

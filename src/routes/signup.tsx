@@ -15,9 +15,15 @@ export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
       { title: "Sign Up — Shree Shyam Dairy" },
-      { name: "description", content: "Create an account for faster dairy checkout and order tracking." },
+      {
+        name: "description",
+        content: "Create an account for faster dairy checkout and order tracking.",
+      },
       { property: "og:title", content: "Sign Up — Shree Shyam Dairy" },
-      { property: "og:description", content: "Create an account for faster dairy checkout and order tracking." },
+      {
+        property: "og:description",
+        content: "Create an account for faster dairy checkout and order tracking.",
+      },
     ],
   }),
   component: () => (
@@ -29,7 +35,10 @@ export const Route = createFileRoute("/signup")({
 
 const schema = z.object({
   name: z.string().trim().min(2).max(80),
-  mobile: z.string().trim().regex(/^[6-9]\d{9}$/),
+  mobile: z
+    .string()
+    .trim()
+    .regex(/^[6-9]\d{9}$/),
   email: z.string().trim().email().max(255),
   password: z.string().min(6).max(72),
 });
@@ -48,7 +57,9 @@ function SignupPage() {
     e.preventDefault();
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
-      toast.error("Check your details: valid name, 10-digit mobile, email and 6+ character password.");
+      toast.error(
+        "Check your details: valid name, 10-digit mobile, email and 6+ character password.",
+      );
       return;
     }
     setBusy(true);
@@ -76,7 +87,11 @@ function SignupPage() {
       <form className="surface-card mt-6 space-y-4 p-5" onSubmit={submit}>
         <div className="space-y-1.5">
           <Label htmlFor="name">Name</Label>
-          <Input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+          <Input
+            id="name"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="mobile">Mobile</Label>

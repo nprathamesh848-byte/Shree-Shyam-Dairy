@@ -74,7 +74,9 @@ function ProductsPage() {
             search={{ q: q, category: undefined }}
             className={cn(
               "rounded-full border px-3 py-1.5 text-sm font-medium",
-              !category ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card",
+              !category
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-border bg-card",
             )}
           >
             All
@@ -100,7 +102,9 @@ function ProductsPage() {
 
         <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {products.isLoading
-            ? Array.from({ length: 8 }).map((_, i) => <Skeleton key={i} className="h-80 rounded-3xl" />)
+            ? Array.from({ length: 8 }).map((_, i) => (
+                <Skeleton key={i} className="h-80 rounded-3xl" />
+              ))
             : products.data?.map((p) => <ProductCard key={p.id} product={p} />)}
         </div>
 

@@ -111,7 +111,10 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
               </span>
             </Link>
 
-            <form onSubmit={submitSearch} className="relative mx-auto hidden w-full max-w-md md:block">
+            <form
+              onSubmit={submitSearch}
+              className="relative mx-auto hidden w-full max-w-md md:block"
+            >
               <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 value={term}
@@ -150,7 +153,12 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full" aria-label="Profile menu">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full"
+                  aria-label="Profile menu"
+                >
                   <User className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
@@ -325,7 +333,10 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
                   </span>
                   {item.label}
                   {item.to === "/cart" && (
-                    <CartBadge count={count} className="absolute right-2 top-0.5 h-4 min-w-4 text-[10px]" />
+                    <CartBadge
+                      count={count}
+                      className="absolute right-2 top-0.5 h-4 min-w-4 text-[10px]"
+                    />
                   )}
                 </Link>
               </li>

@@ -7,10 +7,22 @@ import { toast } from "sonner";
 import { AdminLayout, AdminPageHeader } from "@/components/admin/AdminLayout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { supabase } from "@/integrations/supabase/client";
 import { inr } from "@/lib/business";
@@ -175,7 +187,8 @@ function AdminCoupons() {
                         discount_type: c.discount_type,
                         discount_value: Number(c.discount_value),
                         minimum_order: Number(c.minimum_order ?? 0),
-                        maximum_discount: c.maximum_discount === null ? "" : String(c.maximum_discount),
+                        maximum_discount:
+                          c.maximum_discount === null ? "" : String(c.maximum_discount),
                         usage_limit: c.usage_limit === null ? "" : String(c.usage_limit),
                         expiry_date: c.expiry_date ? c.expiry_date.slice(0, 10) : "",
                         status: c.status,
@@ -185,7 +198,12 @@ function AdminCoupons() {
                   >
                     <Pencil className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="icon" aria-label="Delete" onClick={() => remove(c.id)}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Delete"
+                    onClick={() => remove(c.id)}
+                  >
                     <Trash2 className="h-4 w-4 text-destructive" />
                   </Button>
                 </td>
@@ -272,7 +290,10 @@ function AdminCoupons() {
               />
             </div>
             <div className="col-span-2 flex items-center gap-3">
-              <Switch checked={form.status} onCheckedChange={(v) => setForm({ ...form, status: v })} />
+              <Switch
+                checked={form.status}
+                onCheckedChange={(v) => setForm({ ...form, status: v })}
+              />
               <Label>Active</Label>
             </div>
           </div>

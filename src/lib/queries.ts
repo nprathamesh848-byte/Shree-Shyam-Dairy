@@ -40,7 +40,9 @@ export const categoriesQuery = queryOptions({
   },
 });
 
-export const productsQuery = (opts: { search?: string | undefined; categorySlug?: string | undefined } = {}) =>
+export const productsQuery = (
+  opts: { search?: string | undefined; categorySlug?: string | undefined } = {},
+) =>
   queryOptions({
     queryKey: ["products", opts.search ?? "", opts.categorySlug ?? ""],
     queryFn: async () => {
@@ -113,7 +115,11 @@ export const bannersQuery = queryOptions({
 export const deliverySettingsQuery = queryOptions({
   queryKey: ["settings", "delivery"],
   queryFn: async () => {
-    const { data } = await supabase.from("settings").select("value").eq("key", "delivery").maybeSingle();
+    const { data } = await supabase
+      .from("settings")
+      .select("value")
+      .eq("key", "delivery")
+      .maybeSingle();
     const v = (data?.value ?? {}) as Record<string, unknown>;
     return {
       deliveryCharge: Number(v["delivery_charge"] ?? 30),
@@ -168,7 +174,11 @@ export const myProfileQuery = queryOptions({
   queryFn: async () => {
     const { data: auth } = await supabase.auth.getUser();
     if (!auth.user) return null;
-    const { data } = await supabase.from("profiles").select("*").eq("id", auth.user.id).maybeSingle();
+    const { data } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", auth.user.id)
+      .maybeSingle();
     return data;
   },
 });

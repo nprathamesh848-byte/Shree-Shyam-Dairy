@@ -107,7 +107,9 @@ function Dashboard() {
                 </div>
               </li>
             ))}
-            {data.recent.length === 0 && <li className="py-4 text-muted-foreground">No orders yet.</li>}
+            {data.recent.length === 0 && (
+              <li className="py-4 text-muted-foreground">No orders yet.</li>
+            )}
           </ul>
         </section>
 
@@ -146,7 +148,9 @@ function Stat({
   return (
     <div className="surface-card p-5">
       <div className="flex items-center justify-between">
-        <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</span>
+        <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+          {label}
+        </span>
         <Icon className="h-4 w-4 text-primary" />
       </div>
       <p className="mt-2 font-display text-2xl font-bold">{value}</p>

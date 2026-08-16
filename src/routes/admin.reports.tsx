@@ -41,7 +41,9 @@ function AdminReports() {
     queryFn: async () => {
       const { data: rows, error } = await supabase
         .from("orders")
-        .select("id,total,order_status,created_at, order_items(product_name,variant_label,quantity,subtotal)")
+        .select(
+          "id,total,order_status,created_at, order_items(product_name,variant_label,quantity,subtotal)",
+        )
         .order("created_at", { ascending: false })
         .limit(1000);
       if (error) throw error;
@@ -51,8 +53,7 @@ function AdminReports() {
 
   const report = useMemo(() => {
     if (!data) return null;
-    const cutoff =
-      range === "all" ? 0 : Date.now() - Number(range) * 24 * 60 * 60 * 1000;
+    const cutoff = range === "all" ? 0 : Date.now() - Number(range) * 24 * 60 * 60 * 1000;
     const rows = data.filter((o) => new Date(o.created_at).getTime() >= cutoff);
     const valid = rows.filter((o) => o.order_status !== "cancelled");
     const revenue = valid.reduce((s, o) => s + Number(o.total), 0);
@@ -71,7 +72,10 @@ function AdminReports() {
       for (const i of o.order_items ?? []) {
         const key = `${i.product_name} · ${i.variant_label}`;
         const prev = products.get(key) ?? { qty: 0, revenue: 0 };
-        products.set(key, { qty: prev.qty + i.quantity, revenue: prev.revenue + Number(i.subtotal) });
+        products.set(key, {
+          qty: prev.qty + i.quantity,
+          revenue: prev.revenue + Number(i.subtotal),
+        });
       }
     }
 
@@ -161,7 +165,9 @@ function AdminReports() {
                 <span className="font-semibold">{inr(v)}</span>
               </li>
             ))}
-            {report.byDay.length === 0 && <li className="text-muted-foreground">No sales in this range.</li>}
+            {report.byDay.length === 0 && (
+              <li className="text-muted-foreground">No sales in this range.</li>
+            )}
           </ul>
         </section>
       </div>
@@ -177,7 +183,9 @@ function AdminReports() {
               </span>
             </li>
           ))}
-          {report.topProducts.length === 0 && <li className="text-muted-foreground">No data yet.</li>}
+          {report.topProducts.length === 0 && (
+            <li className="text-muted-foreground">No data yet.</li>
+          )}
         </ul>
       </section>
     </>

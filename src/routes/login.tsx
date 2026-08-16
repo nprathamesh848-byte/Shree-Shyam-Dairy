@@ -17,7 +17,10 @@ export const Route = createFileRoute("/login")({
       { title: "Log In — Shree Shyam Dairy" },
       { name: "description", content: "Log in to track your dairy orders and saved addresses." },
       { property: "og:title", content: "Log In — Shree Shyam Dairy" },
-      { property: "og:description", content: "Log in to track your dairy orders and saved addresses." },
+      {
+        property: "og:description",
+        content: "Log in to track your dairy orders and saved addresses.",
+      },
     ],
   }),
   component: () => (

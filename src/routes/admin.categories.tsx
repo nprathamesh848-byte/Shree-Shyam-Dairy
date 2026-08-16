@@ -51,7 +51,11 @@ type Form = {
 const EMPTY: Form = { name: "", slug: "", description: "", image: "", sort_order: 0, status: true };
 
 const slugify = (s: string) =>
-  s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  s
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 function AdminCategories() {
   const queryClient = useQueryClient();
@@ -61,7 +65,10 @@ function AdminCategories() {
   const { data } = useQuery({
     queryKey: ["admin", "categories"],
     queryFn: async () => {
-      const { data: rows, error } = await supabase.from("categories").select("*").order("sort_order");
+      const { data: rows, error } = await supabase
+        .from("categories")
+        .select("*")
+        .order("sort_order");
       if (error) throw error;
       return rows ?? [];
     },
@@ -175,7 +182,10 @@ function AdminCategories() {
           <div className="space-y-3">
             <div className="space-y-1.5">
               <Label>Name</Label>
-              <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+              <Input
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+              />
             </div>
             <div className="space-y-1.5">
               <Label>Slug (optional)</Label>
@@ -195,7 +205,10 @@ function AdminCategories() {
             </div>
             <div className="space-y-1.5">
               <Label>Image URL</Label>
-              <Input value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} />
+              <Input
+                value={form.image}
+                onChange={(e) => setForm({ ...form, image: e.target.value })}
+              />
             </div>
             <div className="space-y-1.5">
               <Label>Sort order</Label>
@@ -206,7 +219,10 @@ function AdminCategories() {
               />
             </div>
             <div className="flex items-center gap-3">
-              <Switch checked={form.status} onCheckedChange={(v) => setForm({ ...form, status: v })} />
+              <Switch
+                checked={form.status}
+                onCheckedChange={(v) => setForm({ ...form, status: v })}
+              />
               <Label>Visible to customers</Label>
             </div>
           </div>

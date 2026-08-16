@@ -7,10 +7,22 @@ import { toast } from "sonner";
 import { AdminLayout, AdminPageHeader } from "@/components/admin/AdminLayout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
@@ -142,7 +154,9 @@ function AdminOffers() {
                 {!o.status && <Badge variant="secondary">Inactive</Badge>}
               </p>
               <p className="text-sm text-muted-foreground">
-                {o.discount_type === "percentage" ? `${o.discount_value}% off` : `₹${o.discount_value} off`}
+                {o.discount_type === "percentage"
+                  ? `${o.discount_value}% off`
+                  : `₹${o.discount_value} off`}
                 {Number(o.minimum_order) > 0 ? ` · min ₹${o.minimum_order}` : ""}
               </p>
               {o.description && (
@@ -188,7 +202,10 @@ function AdminOffers() {
           <div className="space-y-3">
             <div className="space-y-1.5">
               <Label>Title</Label>
-              <Input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
+              <Input
+                value={form.title}
+                onChange={(e) => setForm({ ...form, title: e.target.value })}
+              />
             </div>
             <div className="space-y-1.5">
               <Label>Description</Label>
@@ -232,7 +249,10 @@ function AdminOffers() {
               </div>
               <div className="space-y-1.5">
                 <Label>Terms</Label>
-                <Input value={form.terms} onChange={(e) => setForm({ ...form, terms: e.target.value })} />
+                <Input
+                  value={form.terms}
+                  onChange={(e) => setForm({ ...form, terms: e.target.value })}
+                />
               </div>
               <div className="space-y-1.5">
                 <Label>Start date</Label>
@@ -252,7 +272,10 @@ function AdminOffers() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Switch checked={form.status} onCheckedChange={(v) => setForm({ ...form, status: v })} />
+              <Switch
+                checked={form.status}
+                onCheckedChange={(v) => setForm({ ...form, status: v })}
+              />
               <Label>Active</Label>
             </div>
           </div>

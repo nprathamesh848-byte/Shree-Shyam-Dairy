@@ -71,7 +71,10 @@ function AdminInventory() {
       toast.error("Enter a valid stock quantity.");
       return;
     }
-    const { error } = await supabase.from("product_variants").update({ stock: value }).eq("id", row.id);
+    const { error } = await supabase
+      .from("product_variants")
+      .update({ stock: value })
+      .eq("id", row.id);
     if (error) {
       toast.error("Could not update stock.");
       return;

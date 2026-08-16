@@ -77,7 +77,9 @@ function OrderDetail() {
 
   const history = (order.status_history ?? []) as Array<{ status: string; at: string }>;
   const cancelled = order.order_status === "cancelled";
-  const currentIndex = ORDER_STATUSES.indexOf(order.order_status as (typeof ORDER_STATUSES)[number]);
+  const currentIndex = ORDER_STATUSES.indexOf(
+    order.order_status as (typeof ORDER_STATUSES)[number],
+  );
 
   const waMessage = buildWhatsAppMessage({
     order_number: order.order_number,
@@ -177,7 +179,9 @@ function OrderDetail() {
 
       <div className="surface-card mt-5 p-5 text-sm">
         <h2 className="font-display text-lg font-bold">Delivery address</h2>
-        <p className="mt-2">{order.customer_name} · {order.customer_mobile}</p>
+        <p className="mt-2">
+          {order.customer_name} · {order.customer_mobile}
+        </p>
         <p className="text-muted-foreground">
           {order.address_text}
           {order.landmark ? `, ${order.landmark}` : ""}

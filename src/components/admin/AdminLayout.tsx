@@ -103,7 +103,9 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             to={to}
             className={cn(
               "flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition-colors",
-              active ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary",
+              active
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:bg-secondary",
             )}
           >
             <Icon className="h-4 w-4" />
@@ -141,7 +143,11 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             </span>
           </Link>
           {nav}
-          <Button variant="ghost" className="mt-auto justify-start text-destructive" onClick={signOut}>
+          <Button
+            variant="ghost"
+            className="mt-auto justify-start text-destructive"
+            onClick={signOut}
+          >
             <LogOut className="mr-2 h-4 w-4" /> Log out
           </Button>
         </aside>

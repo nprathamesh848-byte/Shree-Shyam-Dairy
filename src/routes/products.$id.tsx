@@ -122,7 +122,9 @@ function ProductDetail() {
               {mrp && mrp > price ? (
                 <>
                   <span className="text-base text-muted-foreground line-through">{inr(mrp)}</span>
-                  <Badge className="rounded-full bg-accent text-accent-foreground">{off}% OFF</Badge>
+                  <Badge className="rounded-full bg-accent text-accent-foreground">
+                    {off}% OFF
+                  </Badge>
                 </>
               ) : null}
             </div>
@@ -159,7 +161,12 @@ function ProductDetail() {
             <div className="mt-5 flex items-center gap-3">
               <span className="text-sm font-semibold">Quantity</span>
               <div className="flex items-center rounded-full border border-border">
-                <Button variant="ghost" size="icon" className="rounded-full" onClick={() => setQty(Math.max(1, qty - 1))}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full"
+                  onClick={() => setQty(Math.max(1, qty - 1))}
+                >
                   <Minus className="h-4 w-4" />
                 </Button>
                 <span className="w-8 text-center text-sm font-semibold">{qty}</span>
