@@ -55,7 +55,10 @@ export const placeOrder = createServerFn({ method: "POST" })
       .from("product_variants")
       .select("id, product_id, label, price, stock, status, products(id, name, status)")
       .in("id", variantIds);
-    if (variantError) throw new Error("Unable to place order. Please try again.");
+    if (variantError) {
+      console.error("Variant Error:", variantError);
+      throw new Error("Unable to place order. Please try again.");
+    }
 
     const orderItems: Array<{
       product_id: string;
@@ -98,7 +101,10 @@ export const placeOrder = createServerFn({ method: "POST" })
     const total = round2(afterDiscount + deliveryCharge);
 
     const { data: orderNumber, error: numberError } = await supabaseAdmin.rpc("next_order_number");
-    if (numberError || !orderNumber) throw new Error("Unable to place order. Please try again.");
+    if (numberError || !orderNumber) {
+      console.error("Order Number Error:", numberError);
+      throw new Error("Unable to place order. Please try again.");
+    }
 
     const { data: order, error: orderError } = await supabaseAdmin
       .from("orders")
@@ -124,12 +130,16 @@ export const placeOrder = createServerFn({ method: "POST" })
       })
       .select("*")
       .single();
-    if (orderError || !order) throw new Error("Unable to place order. Please try again.");
+    if (orderError || !order) {
+      console.error("Order Insert Error:", orderError);
+      throw new Error("Unable to place order. Please try again.");
+    }
 
     const { error: itemsError } = await supabaseAdmin
       .from("order_items")
       .insert(orderItems.map((i) => ({ ...i, order_id: order.id })));
     if (itemsError) {
+      console.error("Order Items Error:", itemsError);
       await supabaseAdmin.from("orders").delete().eq("id", order.id);
       throw new Error("Unable to place order. Please try again.");
     }
