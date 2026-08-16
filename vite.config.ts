@@ -15,6 +15,9 @@ export default defineConfig({
     tailwindcss(),
     nitro({
       preset: "vercel",
+      externals: {
+        inline: ["tslib"]
+      }
     }),
   ],
   resolve: {
