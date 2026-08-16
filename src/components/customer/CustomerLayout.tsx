@@ -87,23 +87,21 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-border/60 glass-bar">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex items-center gap-3 py-3">
-            <Link to="/" className="flex min-w-0 items-center gap-2 sm:gap-2.5">
+            <Link to="/" className="flex min-w-0 items-center gap-3">
               <img
                 src="/favicon.png"
                 alt="Shree Shyam Dairy logo"
-                className="h-9 w-9 sm:h-11 sm:w-11 object-contain shrink-0"
+                className="h-12 w-12 object-contain shrink-0"
               />
-              <div className="flex flex-col min-w-0">
-                <span className="block font-display text-[15px] sm:text-base font-bold leading-tight truncate">
-                  {BUSINESS.name}
+              <div className="flex flex-col min-w-0 justify-center">
+                <span className="block font-display text-[17px] sm:text-lg font-bold leading-none tracking-tight text-primary">
+                  Shree Shyam
                 </span>
-                <span className="hidden sm:flex items-center gap-2 text-[11px] text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="h-3 w-3" /> Baramati, Pune
-                  </span>
-                  <span className="hidden items-center gap-1 lg:flex">
-                    <Clock className="h-3 w-3" /> {BUSINESS.hours}
-                  </span>
+                <span className="block font-display text-[14px] sm:text-[15px] font-semibold italic leading-snug text-green-600 mt-0.5">
+                  Dairy
+                </span>
+                <span className="hidden min-[375px]:block text-[10px] text-muted-foreground mt-0.5 truncate">
+                  Farm Fresh • Daily Delivery
                 </span>
               </div>
             </Link>
@@ -140,11 +138,11 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
               asChild
               variant="ghost"
               size="icon"
-              className="relative ml-auto rounded-full md:ml-0"
+              className="relative ml-auto h-11 w-11 rounded-full md:ml-0"
             >
               <Link to="/cart" aria-label={`Cart, ${count} items`}>
                 <ShoppingCart className="h-5 w-5" />
-                <CartBadge count={count} className="absolute -right-0.5 -top-0.5" />
+                <CartBadge count={count} className="absolute right-0 top-0" />
               </Link>
             </Button>
 
@@ -153,7 +151,7 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full"
+                  className="h-11 w-11 rounded-full"
                   aria-label="Profile menu"
                 >
                   <User className="h-5 w-5" />
@@ -192,14 +190,14 @@ export function CustomerLayout({ children }: { children: React.ReactNode }) {
             </DropdownMenu>
           </div>
 
-          <div className="pb-3 md:hidden">
+          <div className="pb-4 md:hidden">
             <form onSubmit={submitSearch} className="relative">
-              <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
               <Input
                 value={term}
                 onChange={(e) => setTerm(e.target.value)}
                 placeholder="Search milk, paneer, ghee..."
-                className="h-11 rounded-full border-border bg-secondary/50 pl-11 focus-visible:bg-background"
+                className="h-[52px] rounded-full border border-border/80 bg-white pl-12 text-base shadow-[var(--shadow-soft)] focus-visible:bg-white"
                 aria-label="Search products"
               />
             </form>

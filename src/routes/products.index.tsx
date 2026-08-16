@@ -21,7 +21,7 @@ export const Route = createFileRoute("/products/")({
   }),
   head: () => ({
     meta: [
-      { title: "All Dairy Products — Shree Shyam Dairy" },
+      { title: "Fresh Cow Milk | Shree Shyam Dairy" },
       {
         name: "description",
         content: "Browse fresh milk, curd, paneer, lassi, buttermilk, butter, ghee and cheese.",

@@ -28,16 +28,15 @@ import { categoryTint } from "@/lib/category-style";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Shree Shyam Dairy — Fresh Milk, Curd & Paneer Delivered" },
+      { title: "Shree Shyam Dairy — Fresh Dairy Delivered Daily" },
       {
         name: "description",
-        content:
-          "Order fresh cow milk, curd, paneer, lassi, butter and ghee from Shree Shyam Dairy in Baramati. Cash on delivery, order via WhatsApp.",
+        content: "Fresh dairy products delivered to your doorstep.",
       },
-      { property: "og:title", content: "Shree Shyam Dairy — Fresh Dairy Delivered" },
+      { property: "og:title", content: "Shree Shyam Dairy — Fresh Dairy Delivered Daily" },
       {
         property: "og:description",
-        content: "Fresh Milk, Curd, Paneer, Lassi and More — Delivered Fresh. Cash on delivery.",
+        content: "Fresh dairy products delivered to your doorstep.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

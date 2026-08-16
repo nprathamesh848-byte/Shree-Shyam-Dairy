@@ -14,7 +14,7 @@ import { offersQuery } from "@/lib/queries";
 export const Route = createFileRoute("/offers")({
   head: () => ({
     meta: [
-      { title: "Offers & Coupons — Shree Shyam Dairy" },
+      { title: "Offers | Shree Shyam Dairy" },
       {
         name: "description",
         content: "Live discounts on milk, paneer, lassi and more at Shree Shyam Dairy.",

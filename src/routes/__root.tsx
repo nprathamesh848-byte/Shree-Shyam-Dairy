@@ -75,13 +75,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Shree Shyam Dairy — Fresh Dairy Delivered" },
+      { title: "Shree Shyam Dairy — Fresh Dairy Delivered Daily" },
       {
         name: "description",
-        content:
-          "Order fresh milk, curd, paneer, lassi, ghee and more from Shree Shyam Dairy. Cash on delivery.",
+        content: "Fresh dairy products delivered to your doorstep.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "Shree Shyam Dairy — Fresh Dairy Delivered Daily" },
+      { property: "og:description", content: "Fresh dairy products delivered to your doorstep." },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -93,6 +94,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
       },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "manifest", href: "/manifest.json" },
     ],
   }),
   shellComponent: RootShell,

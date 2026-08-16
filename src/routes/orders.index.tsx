@@ -14,7 +14,7 @@ export const Route = createFileRoute("/orders/")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "My Orders — Shree Shyam Dairy" },
+      { title: "My Orders | Shree Shyam Dairy" },
       { name: "description", content: "Track your dairy orders and delivery status." },
       { property: "og:title", content: "My Orders — Shree Shyam Dairy" },
       { property: "og:description", content: "Track your dairy orders and delivery status." },
